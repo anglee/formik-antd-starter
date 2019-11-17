@@ -1,5 +1,5 @@
 {
-  "name": "redux-form-starter",
+  "name": "formik-antd-starter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,9 +7,9 @@
     "@types/node": "12.6.8",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.5",
-    "@types/redux-form": "^8.1.9",
     "antd": "^3.23.3",
     "craco-antd": "^1.14.1",
+    "formik": "^2.0.4",
     "lodash": "^4.17.15",
     "qs": "^6.9.0",
     "react": "^16.8.6",
@@ -22,7 +22,6 @@
     "react-scroll": "^1.7.14",
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
-    "redux-form": "^8.2.6",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "typescript": "3.6.4"

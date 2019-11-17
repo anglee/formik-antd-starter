@@ -2,11 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import qs from 'qs';
 import { Alert, Spin } from 'antd';
 import { useLocation } from 'react-router';
-import { useDispatch } from 'react-redux';
-import { initialize } from 'redux-form';
 import ExampleForm, {
-  defaultValues,
-  formName,
   fromFormValues,
   IExampleFormValues,
   toFormValues,
@@ -25,15 +21,14 @@ const ExampleDataEditPage = () => {
   const exampleDataId = getExampleDataId(location.search);
 
   const { isFetching, fetchError, fetchedExampleData } = useFetchedExampleData(exampleDataId);
-
-  const dispatch = useDispatch();
+  const [initialFormValues, setInitialFormValues] = useState<IExampleFormValues | undefined>(
+    undefined,
+  );
 
   /* eslint-disable react-hooks/exhaustive-deps */
   useEffect(() => {
-    dispatch(
-      initialize(formName, fetchedExampleData ? toFormValues(fetchedExampleData) : defaultValues),
-    );
-  }, [dispatch, fetchedExampleData ? fetchedExampleData.id : null]);
+    setInitialFormValues(fetchedExampleData ? toFormValues(fetchedExampleData) : undefined);
+  }, [fetchedExampleData ? fetchedExampleData.id : null]);
   /* eslint-enable react-hooks/exhaustive-deps */
 
   const [isUpdating, setIsUpdating] = useState<boolean>(false);
@@ -59,6 +54,7 @@ const ExampleDataEditPage = () => {
       )}
       <Spin spinning={isFetching} tip="Loading..." delay={spinnerDelay}>
         <ExampleForm
+          initialValues={initialFormValues}
           disabled={!!fetchError}
           submitButtonText={isUpdating ? 'Updating...' : 'Update'}
           submissionError={updateError ? `Failed to update example data. ${updateError}` : null}

@@ -1,3 +1,3 @@
-## Redux-form Starter
+## Formik + antd Starter
 
-Using [redux-form](https://redux-form.com), [antd](https://ant.design).
+Using [formik](https://jaredpalmer.com/formik/), [antd](https://ant.design).
