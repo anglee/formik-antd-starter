@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Formik, FormikErrors } from 'formik';
 import { Alert, Button, Col, Row, Spin } from 'antd';
 import _ from 'lodash';
@@ -75,6 +75,13 @@ const ExampleForm = ({
     }
   };
 
+  const isUnmounted = useRef(false);
+  useEffect(() => {
+    return () => {
+      isUnmounted.current = true;
+    };
+  }, []);
+
   return (
     <div className="ExampleForm">
       <ErrorBoundary messagePrefix="Page Error: ">
@@ -89,7 +96,9 @@ const ExampleForm = ({
               // eslint-disable-next-line no-console
               console.error('error', error);
             } finally {
-              actions.setSubmitting(false);
+              if (!isUnmounted.current) {
+                actions.setSubmitting(false);
+              }
             }
           }}
         >
