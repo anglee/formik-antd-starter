@@ -43,7 +43,15 @@ const App: React.FC<{}> = (): JSX.Element => {
           </HashRouter>
         </Layout.Content>
         <Layout.Footer className="App-footer">
-          Copyright <Icon type="copyright" /> 2019 Ang Lee
+          <button
+            type="button"
+            className="px-2 py-1 rounded-lg bg-green-400 text-green-800 text-xl font-light uppercase shadow-md hover:shadow-lg"
+          >
+            Tailwind
+          </button>
+          <span>
+            Copyright <Icon type="copyright" /> 2019 Ang Lee
+          </span>
         </Layout.Footer>
       </Layout>
     </div>
