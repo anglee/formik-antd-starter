@@ -7,6 +7,7 @@ const IExampleDataStore: { [id: string]: IExampleDataEditable } = {
     name: 'Ang Lee',
     website: 'https://anglee.info',
     description: `I am.`,
+    users: [],
   },
 };
 

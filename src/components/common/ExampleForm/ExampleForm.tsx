@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { Formik, FormikErrors } from 'formik';
+import { FormikErrors } from 'formik';
 import { Alert, Button, Col, Row, Spin } from 'antd';
 import _ from 'lodash';
 import { Element, scroller } from 'react-scroll';
@@ -7,20 +7,25 @@ import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import spinnerDelay from '../../../constants/spinnerDelay';
 import IExampleData, { IExampleDataEditable } from '../../../types/IExampleData';
 import './ExampleForm.less';
-import FormInput from '../formik/FormInput/FormInput2';
-import FormTextArea from '../formik/FormTextArea/FormTextArea';
+import FormInput from '../formik/inputs/FormInput/FormInput2';
+import FormTextArea from '../formik/inputs/FormTextArea/FormTextArea';
 import FormikContextViewer from '../formik/FormikContextViewer/FormitContextViewer';
+import FormikWithRef from '../formik/FormikWithRef/FormikWithRef';
+import FormUserSearchMultiSelect from '../formik/inputs/FormUserSearchMultiSelect/FormUserSearchMultiSelect';
+import { IUser } from '../../../types/IUser';
 
 export interface IExampleFormValues {
   name: string;
   website: string;
   description: string;
+  users: IUser[];
 }
 
 export const defaultValues: IExampleFormValues = {
   name: '',
   website: '',
   description: '',
+  users: [],
 };
 
 export const validate = (values: IExampleFormValues): IErrors => {
@@ -35,16 +40,19 @@ export const toFormValues = (exampleData: IExampleData): IExampleFormValues => (
   name: exampleData.name,
   website: exampleData.website || '',
   description: exampleData.description || '',
+  users: exampleData.users || [],
 });
 
 export const fromFormValues = ({
   name,
   website,
   description,
+  users,
 }: IExampleFormValues): IExampleDataEditable => ({
   name,
   website: _.isEmpty(website) ? undefined : website,
   description: _.isEmpty(description) ? null : description,
+  users,
 });
 
 interface IProps {
@@ -53,6 +61,7 @@ interface IProps {
   submitButtonText: string;
   submissionError: string | null;
   onSubmit: (values: IExampleFormValues) => Promise<void>;
+  formRef?: any;
 }
 
 type IErrors = FormikErrors<IExampleFormValues>;
@@ -63,6 +72,7 @@ const ExampleForm = ({
   initialValues,
   disabled,
   onSubmit,
+  formRef,
 }: IProps) => {
   const scrollToFirstError = (errors: IErrors = {}) => {
     const orderedFields: (keyof IErrors)[] = ['name'];
@@ -85,7 +95,8 @@ const ExampleForm = ({
   return (
     <div className="ExampleForm">
       <ErrorBoundary messagePrefix="Page Error: ">
-        <Formik
+        <FormikWithRef
+          ref={formRef}
           enableReinitialize={true}
           initialValues={initialValues || defaultValues}
           validate={validate}
@@ -154,6 +165,13 @@ const ExampleForm = ({
                         </Element>
                       </Col>
                     </Row>
+                    <Row className="form-row">
+                      <Col lg={24} md={24} sm={24}>
+                        <Element name="position-description">
+                          <FormUserSearchMultiSelect label="Users" name="users" />
+                        </Element>
+                      </Col>
+                    </Row>
                   </Spin>
                   {submissionError && (
                     <Alert
@@ -175,7 +193,7 @@ const ExampleForm = ({
               </>
             );
           }}
-        </Formik>
+        </FormikWithRef>
       </ErrorBoundary>
     </div>
   );

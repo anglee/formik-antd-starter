@@ -4,7 +4,7 @@ import React from 'react';
 
 const FormikContextViewer = () => {
   const context = useFormikContext();
-  return <ReactJson src={context} />;
+  return <ReactJson src={context} collapsed={true} />;
 };
 
 export default FormikContextViewer;
