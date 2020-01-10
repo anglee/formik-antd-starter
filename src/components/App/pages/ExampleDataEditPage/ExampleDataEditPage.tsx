@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Button, Alert, Spin } from 'antd';
 import qs from 'qs';
-import { Alert, Spin } from 'antd';
+
 import { useLocation } from 'react-router';
 import ExampleForm, {
   fromFormValues,
@@ -44,6 +45,8 @@ const ExampleDataEditPage = () => {
     }
   }, []);
 
+  const formRef = useRef();
+
   return (
     <section className="ExampleDataEditPage alee-page">
       <h1>Edit Example Data (id={exampleDataId})</h1>
@@ -61,8 +64,22 @@ const ExampleDataEditPage = () => {
           onSubmit={async (values: IExampleFormValues) =>
             updateExampleData(exampleDataId, fromFormValues(values))
           }
+          formRef={formRef}
         />
       </Spin>
+      <hr />
+      <h2>Remote submit button</h2>
+      <Button
+        type="primary"
+        disabled={!!fetchError || !!isUpdating}
+        onClick={() => {
+          if (formRef.current) {
+            (formRef.current as any).handleSubmit();
+          }
+        }}
+      >
+        Remote submit
+      </Button>
     </section>
   );
 };
