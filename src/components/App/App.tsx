@@ -9,6 +9,7 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import ExampleFormEditPage from './pages/ExampleDataEditPage/ExampleDataEditPage';
 import AppHeader from './AppHeader/AppHeader';
 import './App.less';
+import LandingPage from './pages/LandingPage/LandingPage';
 
 const App: React.FC<{}> = (): JSX.Element => {
   const username = useSelector(selectors.getUsername);
@@ -33,6 +34,7 @@ const App: React.FC<{}> = (): JSX.Element => {
                   path="/"
                   render={() => <Redirect to="/exampleData/edit?id=existing123" />}
                 />
+                <Route exact path="/landing" component={LandingPage} />
                 <Route exact path="/exampleData/edit" component={ExampleFormEditPage} />
                 <Route path="/404" component={NotFoundPage} />
                 <Redirect to="/404" />

@@ -1,0 +1,267 @@
+.LandingPage {
+  width: 100%;
+  background-color: #edf1f8;
+  font-family: Roboto;
+
+  @media (min-width: 992px) {
+    .fc-landing-center {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 991px) and (min-width: 768px) {
+    .fc-landing-center {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 767px) and (min-width: 576px) {
+    .fc-landing-center {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 575px) {
+    .fc-landing-center {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  .fc-landing-section-1 {
+    min-height: 369px;
+    background-color: #003e6f;
+    background-image: url('hero.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .fc-landing-hero {
+      display: flex;
+      padding: 45px 0px;
+
+      .fc-landing-hero-left {
+        flex-grow: 1;
+        flex-shrink: 0;
+        .fc-landing-hero-text-1 {
+          color: #ffffff;
+          font-size: 36px;
+          font-weight: bold;
+        }
+        .fc-landing-hero-text-2 {
+          color: #dceefb;
+          font-size: 14px;
+          margin-top: 20px;
+        }
+        .fc-landing-hero-learn-more {
+          color: #dceefb;
+          font-size: 10px;
+          text-transform: uppercase;
+          margin-top: 10px;
+        }
+        .fc-landing-hero-search-box {
+          margin-top: 22px;
+          width: 100%;
+          .ant-btn {
+            background-color: #f0b429;
+            border-color: #f0b429;
+            i {
+              color: #000000;
+            }
+          }
+        }
+      }
+      .fc-landing-hero-right {
+        flex-grow: 0;
+        flex-shrink: 1;
+
+        img {
+          @media (min-width: 992px) {
+            width: 110%;
+            margin-top: -9px;
+          }
+          @media (max-width: 991px) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .fc-landing-section-2 {
+    padding-top: 72px;
+    padding-bottom: 72px;
+
+    .fc-data-starter-kit {
+      background-color: #ffffff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      padding: 45px 39px;
+      border-radius: 4px;
+
+      .fc-data-starter-kit-title {
+        font-size: 30px;
+        font-weight: bold;
+        color: #000000;
+      }
+      .fc-data-starter-kit-description {
+        font-size: 14px;
+        color: #829ab1;
+      }
+
+      .fc-data-starter-kit-categories {
+        margin-top: 40px;
+
+        .fc-data-starter-kit-category {
+          .fc-data-starter-kit-category-title {
+            color: #000000;
+            font-size: 16px;
+            margin-bottom: 22px;
+          }
+          .fc-data-starter-kit-category-items {
+            .fc-data-starter-kit-category-item {
+              display: flex;
+              font-size: 14px;
+              margin-bottom: 8px;
+
+              .fc-data-starter-kit-category-item-icon {
+                color: #0f609b;
+                margin-right: 8px;
+              }
+              .fc-data-starter-kit-category-item-text {
+                color: #000000;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .fc-landing-section-3 {
+    .fc-landing-section-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #000000;
+      margin-bottom: 8px;
+    }
+    .fc-my-stats-box {
+      background-color: #ffffff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 4px;
+
+      .fc-my-stats-primary-row {
+        .fc-img-container {
+          padding-left: 38px;
+          padding-right: 38px;
+          margin-top: -12px;
+          height: 181px;
+
+          img {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+
+        .fc-my-stats-primary-num {
+          font-size: 72px;
+          font-weight: bold;
+          color: #000000;
+          margin-right: 16px;
+          display: inline-block;
+        }
+        .fc-my-stats-primary-text {
+          font-size: 24px;
+          font-weight: bold;
+          color: #003e6b;
+          display: inline-block;
+        }
+        .fc-my-stats-primary-col {
+          height: 181px;
+          line-height: 181px;
+
+          @media (min-width: 768px) {
+            text-align: left;
+          }
+          @media (max-width: 767px) {
+            text-align: center;
+          }
+
+          .fc-my-stats-primary {
+            display: inline-block;
+            line-height: normal;
+            vertical-align: middle;
+          }
+        }
+      }
+
+      .fc-my-stats-secondary-row {
+        .fc-my-stats-secondary-col {
+          height: 93px;
+          line-height: 93px;
+          text-align: center;
+          border-top: #d9e2ec solid 1px;
+
+          .fc-my-stats-secondary {
+            display: inline-block;
+            line-height: normal;
+            vertical-align: middle;
+          }
+        }
+        @media (min-width: 768px) {
+          .fc-my-stats-secondary-col:not(:first-child) {
+            border-left: #d9e2ec solid 1px;
+          }
+        }
+
+        .fc-my-stats-secondary-name {
+          font-size: 14px;
+          font-weight: bold;
+          color: #003e6b;
+          text-align: left;
+          margin-bottom: 5px;
+        }
+
+        .fc-my-stats-secondary-value {
+          text-align: left;
+        }
+
+        .fc-my-stats-secondary-num {
+          font-size: 36px;
+          font-weight: bold;
+          color: #000000;
+          margin-right: 10px;
+        }
+
+        .fc-my-stats-secondary-text {
+          font-size: 14px;
+          font-weight: bold;
+          color: #003e6b;
+        }
+      }
+      .stats-link-row {
+        background-color: #c4c4c4;
+        border-radius: 0px 0px 4px 4px;
+        .stats-link-cell {
+          height: 36px;
+          line-height: 36px;
+        }
+        .fc-my-stats-link-container {
+          height: 36px;
+          line-height: 36px;
+          text-align: center;
+        }
+        .fc-my-stats-link {
+          margin: 0 auto;
+          font-size: 12px;
+          font-weight: bold;
+          color: #627d98;
+          vertical-align: baseline;
+          line-height: normal;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
