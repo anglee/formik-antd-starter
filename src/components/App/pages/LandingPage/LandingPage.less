@@ -61,15 +61,25 @@
           text-transform: uppercase;
           margin-top: 10px;
         }
-        .fc-landing-hero-search-box {
+        .fc-landing-search-row {
           margin-top: 22px;
           width: 100%;
-          .ant-btn {
-            background-color: #f0b429;
-            border-color: #f0b429;
-            i {
-              color: #000000;
+          display: flex;
+          align-items: center;
+
+          .fc-landing-search-box {
+            flex-grow: 1;
+            .ant-btn {
+              background-color: #f0b429;
+              border-color: #f0b429;
+              i {
+                color: #000000;
+              }
             }
+          }
+          .fc-search-help-icon {
+            margin-left: 16px;
+            color: #8dbadb;
           }
         }
       }

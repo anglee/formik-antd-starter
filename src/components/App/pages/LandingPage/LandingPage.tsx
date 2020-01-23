@@ -32,15 +32,20 @@ const LandingPage = () => {
                     Pitcher Dialog lets you easily access, publish and manage your pitcher sets.
                   </div>
                   <div className="fc-landing-hero-learn-more">Learn more &gt;</div>
-                  <div className="fc-landing-hero-search-box">
-                    <Search
-                      placeholder="Search for pitcher sets"
-                      onSearch={(value: string) => {
-                        /* eslint-disable-next-line no-console */
-                        console.log(value);
-                      }}
-                      enterButton
-                    />
+                  <div className="fc-landing-search-row">
+                    <div className="fc-landing-search-box">
+                      <Search
+                        placeholder="Search for pitcher sets"
+                        onSearch={(value: string) => {
+                          /* eslint-disable-next-line no-console */
+                          console.log(value);
+                        }}
+                        enterButton
+                      />
+                    </div>
+                    <span className="fc-search-help-icon">
+                      <Icon type="question-circle" />
+                    </span>
                   </div>
                 </div>
               </Col>
